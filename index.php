@@ -80,13 +80,27 @@
       margin: 0px auto;
       position: relative;
     }
-    #pageContent {
+    #content {
       position: absolute;
       left: -25%;
       top: 0px;
       width: 110%;
       left: 110%;
       margin-top: 20px;
+    }
+    #pageContent {
+      float: left;
+      width: 80%;
+      border: 0px;
+      margin: 0px;
+      padding: 0px;
+    }
+    #nav {
+      float: left;
+      width: 20%;
+      border: 0px;
+      margin: 0px;
+      padding: 0px;
     }
     #RSVPForm div {
       margin-top: 30px;
@@ -187,8 +201,6 @@
       semaphoreTwo = true;
       function fadeInNewContent() {
         content = $("#" + id);
-        //content.css({ opacity: 0 });
-        //content.removeClass("hide");
         content.fadeIn(2000, function() {
           semaphoreTwo = true;
         });
@@ -201,13 +213,13 @@
         });
       }
       else {
-        $("#pageContent").removeClass("hide");
+        $("#content").removeClass("hide");
         fadeInNewContent();
       }
     }
   </script>
 </head>
-<body>
+<body class="green">
 <div class="pink holder" style="overflow: hidden">
   <div style="width: 75%; float: left" class="startText">
     <div style="width: 40%">
@@ -233,9 +245,10 @@
     </div>
   </div>
 </div>
-<div class="green holder" style="height: 100%">
+<div class="green holder">
   <div style="width: 75%" class="startText">
-    <div class="centered hide" id="pageContent">
+    <div class="centered hide" id="content">
+      <div id="pageContent">
 
         <div id="RSVPForm" class="hide">
           <p>WE WOULD BE DELIGHTED TO HAVE YOU AT OUR WEDDING CEREMONY, DINNER, AND RECEPTION ON THE BEACH.  PLEASE LET US KNOW HOW MANY PEOPLE WE CAN EXPECT IN YOUR PARTY.<span id="parentheticalInstruction"></span>  FEEL FREE TO BROWSE THE WEBSITE FOR MORE INFORMATION.</p>
@@ -254,11 +267,19 @@
           </div>
         </div>
 
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="#RSVP">RSVP</a></li>
+        </ul>
+      </div>
+      <div class-"clear"></div>
     </div>
     <p class="centered smallfont" style="position: relative; top: -0.5em">to</p>
     <p class="centered" ><em class="bigfont"><span class="illuminate">Isaac Lincoln McCarthy James</span></em></p>
   </div>
   <div class="centered smallfont startText" style="margin-top: 20px"><label for="code">ENTER THE CODE FROM YOUR INVITATION:</label>&nbsp;&nbsp;<form id="query" action="query.php" method="GET" autocomplete="off"><input id="code" name="code" style="font-size: 16pt"></form></div>
+  <div class-"clear"></div>
 </div>
 </body>
 </html>
