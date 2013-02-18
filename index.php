@@ -13,7 +13,7 @@
     }
     html, body, div, p, input {
       font-family: virginia;
-      font-size: 35pt;
+      font-size: 24pt;
       margin: 0px;
       padding: 0px;
     }
@@ -54,11 +54,11 @@
     }
     #Moon {
       top: 0em;
-      height: 4.6em;
-      width: 4.6em;
-      border-radius: 4.6em 4.6em 4.6em 4.6em;
-      -moz-border-radius: 4.6em 4.6em 4.6em 4.6em;
-      -webkit-border-radius: 4.6em 4.6em 4.6em 4.6em;
+      height: 250px;
+      width: 250px;
+      border-radius: 250px 250px 250px 250px;
+      -moz-border-radius: 250px 250px 250px 250px;
+      -webkit-border-radius: 250px 250px 250px 250px;
       background-color:#f8d5a5;
     }
     .startText {
@@ -81,6 +81,7 @@
       position: relative;
     }
     #content {
+      font-size: 24pt;
       position: absolute;
       left: -25%;
       top: 0px;
@@ -102,32 +103,40 @@
       margin: 0px;
       padding: 0px;
     }
-    #RSVPForm div {
+    #RSVP div {
       margin-top: 30px;
       margin-left: auto;
       margin-right: auto;
     }
-    #RSVPForm img {
+    #RSVP img {
       display: block;
       float: left;
     }
-    #RSVPForm form {
-      width: 15em;
+    #RSVP form {
+      width: 17em;
       display: block;
       float: left;
       margin-left: 20px;
     }
-    #RSVPForm .justified {
+    #RSVP .justified {
       display: block;
       float: right;
       clear: both;
     }
-    #RSVPForm .justified input {
+    #RSVP .justified input {
+      font-size: 24pt;
       width: 8em;
     }
-    #RSVPForm .btn {
+    #RSVP .btn {
       height: 40px;
       margin-top: 20px;
+    }
+    #nav ul {
+      list-style-type: none;
+    }
+    #nav li {
+      display: block;
+      margin-bottom: 10px;
     }
   </style>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -180,7 +189,7 @@
     function moonRise(data) {
       return function() {
         $("#Moon").animate({
-          top: '-4.6em',
+          top: '-280px',
         }, 2000, showName(data));
       }
     }
@@ -190,7 +199,7 @@
         $(".nameText").removeClass('hide');
         $(".nameText").animate({
           left: '85%',
-        }, 2000, function() {showPage("RSVPForm");});
+        }, 2000, function() {showPage("RSVP");});
       }
     }
     var semaphoreTwo = false;
@@ -250,18 +259,18 @@
     <div class="centered hide" id="content">
       <div id="pageContent">
 
-        <div id="RSVPForm" class="hide">
-          <p>WE WOULD BE DELIGHTED TO HAVE YOU AT OUR WEDDING CEREMONY, DINNER, AND RECEPTION ON THE BEACH.  PLEASE LET US KNOW HOW MANY PEOPLE WE CAN EXPECT IN YOUR PARTY.<span id="parentheticalInstruction"></span>  FEEL FREE TO BROWSE THE WEBSITE FOR MORE INFORMATION.</p>
+        <div id="RSVP" class="hide">
+          <p>WE WOULD BE DELIGHTED TO HAVE YOU AT OUR WEDDING CEREMONY, DINNER, AND RECEPTION ON THE BEACH.  WE ARE EXCITED TO CELEBRATE OUR BIG DAY WITH EVERYONE THAT MATTERS TO US!  IN THESE PAGES YOU MIGHT LEARN A LITTLE MORE ABOUT US AS A COUPLE AND SOME MORE DETAILS ABOUT OUR WEDDING.  IF YOU'RE TRAVELING FROM OUT OF STATE THERE ARE RESOURCES FOR YOU - FROM WHERE TO SLEEP TO WHAT TO DO WHEN YOU GET HERE.  PLEASE LET US KNOW HOW MANY PEOPLE WE CAN EXPECT IN YOUR PARTY<span id="parentheticalInstruction"></span>.</p>
           <div>
             <img src="http://placehold.it/500x300" alt="The happy couple" />
             <form action="/update.php" method="POST">
-              <label class="centered">Are you coming: <input type="checkbox" name="attending" value="checked" /></label>
+              <label class="centered">ARE YOU COMING: <input type="checkbox" name="attending" value="checked" /></label>
               <div class="clear" style="margin: 10px"></div>
-              <label class="justified">How many adults: <input type="number" name="adults" value="1" min="1" max="5" /></label>
-              <label class="justified">How many children: <input type="number" name="children" value="0" min="0" max="5" /></label>
-              <label class="justified">Your email: <input type="email" name="email" /></label>
+              <label class="justified">HOW MANY ADULTS: <input type="number" name="adults" value="1" min="1" max="5" /></label>
+              <label class="justified">HOW MANY CHILDREN: <input type="number" name="children" value="0" min="0" max="5" /></label>
+              <label class="justified">YOUR EMAIL: <input type="email" name="email" /></label>
               <div class="clear" style="margin: 10px"></div>
-              <input type="submit" value="Save" class="btn btn-block btn-success" />
+              <input type="submit" value="Save" class="btn btn-block btn-success" style="font-size: 26pt" />
             </form>
             <div class="clear"></div>
           </div>
@@ -270,7 +279,11 @@
       </div>
       <div id="nav">
         <ul>
-          <li><a href="#RSVP">RSVP</a></li>
+          <li><a class="btn btn-large" href="#RSVP">RSVP</a></li>
+          <li><a class="btn btn-large" href="#Getting_There">Getting There</a></li>
+          <li><a class="btn btn-large" href="#Accommodations">Accommodations</a></li>
+          <li><a class="btn btn-large" href="#Event">Event</a></li>
+          <li><a class="btn btn-large" href="#Wedding_Party">Wedding Party</a></li>
         </ul>
       </div>
       <div class-"clear"></div>
