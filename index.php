@@ -155,6 +155,14 @@
           "",
           function(data, stat) {
             if (data['name'] != null) {
+              $('input').each(function() {
+                if ($(this).attr('name') == 'attending') {
+                  $(this).prop('checked', data['attending'] == '1');
+                } 
+                else {
+                  $(this).attr('value', data[$(this).attr('name')]);
+                }
+              });
               enterCode(data);
             }
           },
@@ -162,9 +170,19 @@
         );
       });
       $("#code").focus();
-      $("#nav a").click(function() {
+      $("#nav a").click(function(event) {
         showPage($(this).attr("href").substring(1));
-        return false;
+        event.preventDefault();
+      });
+      $("#saveData").click(function(event) {
+        event.preventDefault();
+        var form = $("#RSVPForm");
+        $.post(form.attr('action'), form.serialize());
+        if ($("#attendingInput").attr('checked') == 'checked') {
+          showPage("Coming");
+        } else {
+          showPage("NotComing");
+        }
       });
     });
     function enterCode(data) {
@@ -269,18 +287,43 @@
           <p>WE WOULD BE DELIGHTED TO HAVE YOU AT OUR WEDDING CEREMONY, DINNER, AND RECEPTION ON THE BEACH.  WE ARE EXCITED TO CELEBRATE OUR BIG DAY WITH EVERYONE THAT MATTERS TO US!  IN THESE PAGES YOU MIGHT LEARN A LITTLE MORE ABOUT US AS A COUPLE AND SOME MORE DETAILS ABOUT OUR WEDDING.  IF YOU'RE TRAVELING FROM OUT OF STATE THERE ARE RESOURCES FOR YOU - FROM WHERE TO SLEEP TO WHAT TO DO WHEN YOU GET HERE.  PLEASE LET US KNOW HOW MANY PEOPLE WE CAN EXPECT IN YOUR PARTY<span id="parentheticalInstruction"></span>.</p>
           <div>
             <img src="http://placehold.it/500x300" alt="The happy couple" />
-            <form action="/update.php" method="POST">
-              <label style="display: block" class="centered">ARE YOU COMING: <input type="checkbox" name="attending" value="checked" /></label>
+            <form action="/update.php" method="POST" id="RSVPForm">
+              <label style="display: block" class="centered">ARE YOU COMING: <input type="checkbox" name="attending" value="checked" id="attendingInput" /></label>
               <p class="centered">(CHECKED: YES, UNCHECKED: NO)</p>
               <div class="clear" style="margin: 10px"></div>
               <label class="justified">HOW MANY ADULTS: <input type="number" name="adults" value="1" min="1" max="5" /></label>
               <label class="justified">HOW MANY CHILDREN: <input type="number" name="children" value="0" min="0" max="5" /></label>
               <label class="justified">YOUR EMAIL: <input type="email" name="email" /></label>
+              <input type="hidden" name="code" />
               <div class="clear" style="margin: 10px"></div>
-              <input type="submit" value="Save" class="btn btn-block btn-success" style="font-size: 26pt" />
+              <input id="saveData" type="submit" value="Save" class="btn btn-block btn-success" style="font-size: 26pt" />
             </form>
             <div class="clear"></div>
           </div>
+        </div>
+
+        <div id="Coming" class="hide">
+          <h2>YAY!  WE'LL SEE YOU IN SEPTEMBER!</h2>
+          <p>NOW THAT WE'VE GOT YOUR RSVP, TAKE A LOOK AT THAT HEART-SHAPED PIECE OF PINK PAPER WITH YOUR CODE ON IT.  IT IS SEED PAPER, MADE BY JESSICA.  FOLLOW THESE DIRECTIONS:</p>
+          <ol>
+            <li>WRITE DOWN YOUR CODE AND THE WEBSITE, IN CASE YOU NEED TO CHANGE YOUR RSVP</li>
+            <li>RIP THE SEED PAPER INTO PIECES</li>
+            <li>PLANT THE PIECES UNDER &frac12; AN INCH OF SOIL</li>
+            <li>WATER OCCASIONALLY</li>
+          </ol>
+          <p>TO GROW CALIFORNIA NATIVE WILDFLOWERS!</p>
+        </div>
+
+        <div id="NotComing" class="hide">
+          <h2>SORRY TO HEAR YOU CAN'T MAKE IT</h2>
+          <p>NOW THAT WE'VE GOT YOUR RSVP, TAKE A LOOK AT THAT HEART-SHAPED PIECE OF PINK PAPER WITH YOUR CODE ON IT.  IT IS SEED PAPER, MADE BY JESSICA.  FOLLOW THESE DIRECTIONS:</p>
+          <ol>
+            <li>WRITE DOWN YOUR CODE AND THE WEBSITE, IN CASE YOU NEED TO CHANGE YOUR RSVP</li>
+            <li>RIP THE SEED PAPER INTO PIECES</li>
+            <li>PLANT THE PIECES UNDER &frac12; AN INCH OF SOIL</li>
+            <li>WATER OCCASIONALLY</li>
+          </ol>
+          <p>TO GROW CALIFORNIA NATIVE WILDFLOWERS!</p>
         </div>
 
         <div id="Getting_There" class="hide">

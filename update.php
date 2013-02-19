@@ -2,16 +2,32 @@
 include 'mysql_setup.php';
 
 $sql = 'UPDATE guest
-        SET ? = ?
+        SET
+        attending = ?,
+        adults = ?,
+        children = ?,
+        email = ?,
+        intentional = 1
         WHERE code = ?';
 
 $stmt = $mysqli->prepare($sql);
 
-$stmt->bind_param("s", $_POST['field']);
-$stmt->bind_param("s", $_POST['value']);
-$stmt->bind_param("s", $_POST['code']);
+$attending = ($_POST['attending'] == 'checked' ? '1' : '0');
+
+$stmt->bind_param("sssss",
+  $attending,
+  $_POST['adults'],
+  $_POST['children'],
+  $_POST['email'],
+  $_POST['code']
+);
 
 $stmt->execute();
 
 echo(json_encode("ok"));
+
+$stmt->close();
+
+$mysqli->close();
+
 ?>
