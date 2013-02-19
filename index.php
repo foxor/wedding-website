@@ -88,7 +88,6 @@
       width: 110%;
       left: 110%;
       margin-top: 20px;
-      margin-bottom: 20px;
     }
     #pageContent {
       float: left;
@@ -96,6 +95,8 @@
       border: 0px;
       margin: 0px;
       padding: 0px;
+      margin-bottom: 20px;
+      text-align: left;
     }
     #nav {
       float: left;
@@ -163,6 +164,7 @@
       $("#code").focus();
       $("#nav a").click(function() {
         showPage($(this).attr("href").substring(1));
+        return false;
       });
     });
     function enterCode(data) {
@@ -268,7 +270,8 @@
           <div>
             <img src="http://placehold.it/500x300" alt="The happy couple" />
             <form action="/update.php" method="POST">
-              <label class="centered">ARE YOU COMING: <input type="checkbox" name="attending" value="checked" /></label>
+              <label style="display: block" class="centered">ARE YOU COMING: <input type="checkbox" name="attending" value="checked" /></label>
+              <p class="centered">(CHECKED: YES, UNCHECKED: NO)</p>
               <div class="clear" style="margin: 10px"></div>
               <label class="justified">HOW MANY ADULTS: <input type="number" name="adults" value="1" min="1" max="5" /></label>
               <label class="justified">HOW MANY CHILDREN: <input type="number" name="children" value="0" min="0" max="5" /></label>
@@ -281,9 +284,9 @@
         </div>
 
         <div id="Getting_There" class="hide">
-          <iframe width="1200" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;t=m&amp;ll=35.127262,-120.646813&amp;spn=0.01053,0.025728&amp;z=16&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/?ie=UTF8&amp;t=m&amp;ll=35.127262,-120.646813&amp;spn=0.01053,0.025728&amp;z=16&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+          <iframe width="1200" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=&amp;daddr=35.12219,-120.634239&amp;hl=en&amp;geocode=&amp;sll=35.122159,-120.632951&amp;sspn=0.003668,0.008256&amp;mra=mift&amp;mrsp=1&amp;sz=18&amp;ie=UTF8&amp;t=m&amp;ll=35.124796,-120.64044&amp;spn=0.005265,0.012864&amp;z=17&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=&amp;daddr=35.12219,-120.634239&amp;hl=en&amp;geocode=&amp;sll=35.122159,-120.632951&amp;sspn=0.003668,0.008256&amp;mra=mift&amp;mrsp=1&amp;sz=18&amp;ie=UTF8&amp;t=m&amp;ll=35.124796,-120.64044&amp;spn=0.005265,0.012864&amp;z=17" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 
-          <p>LOCAL AIRPORT WITH UNITED AND U.S. AIRWAYS: <a href="http://sloairport.com/airlines.html">http://sloairport.com/airlines.html</a>
+          <p style="margin-top: 20px">LOCAL AIRPORT WITH UNITED AND U.S. AIRWAYS: <a href="http://sloairport.com/airlines.html">http://sloairport.com/airlines.html</a>
 
           <p>FREE PARKING AT PARKING LOT AT THE END OF W. GRAND AVENUE IN GROVER BEACH,CA.
           FOR $5 YOU CAN DRIVE YOUR CAR ONTO THE BEACH AND PARK IT NEAR THE CEREMONY.
