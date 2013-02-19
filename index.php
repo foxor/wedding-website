@@ -88,6 +88,7 @@
       width: 110%;
       left: 110%;
       margin-top: 20px;
+      margin-bottom: 20px;
     }
     #pageContent {
       float: left;
@@ -160,6 +161,9 @@
         );
       });
       $("#code").focus();
+      $("#nav a").click(function() {
+        showPage($(this).attr("href").substring(1));
+      });
     });
     function enterCode(data) {
       $(".startText").animate({
@@ -210,13 +214,13 @@
       semaphoreTwo = true;
       function fadeInNewContent() {
         content = $("#" + id);
-        content.fadeIn(2000, function() {
-          semaphoreTwo = true;
+        content.fadeIn(400, function() {
+          semaphoreTwo = false;
         });
       }
       existing = $("#pageContent > :not(:hidden)");
       if (existing.length) {
-        existing.fadeOut(2000, function() {
+        existing.fadeOut(400, function() {
           existing.addClass("hide");
           fadeInNewContent();
         });
@@ -274,6 +278,66 @@
             </form>
             <div class="clear"></div>
           </div>
+        </div>
+
+        <div id="Getting_There" class="hide">
+          <iframe width="1200" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;t=m&amp;ll=35.127262,-120.646813&amp;spn=0.01053,0.025728&amp;z=16&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/?ie=UTF8&amp;t=m&amp;ll=35.127262,-120.646813&amp;spn=0.01053,0.025728&amp;z=16&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+
+          <p>LOCAL AIRPORT WITH UNITED AND U.S. AIRWAYS: <a href="http://sloairport.com/airlines.html">http://sloairport.com/airlines.html</a>
+
+          <p>FREE PARKING AT PARKING LOT AT THE END OF W. GRAND AVENUE IN GROVER BEACH,CA.
+          FOR $5 YOU CAN DRIVE YOUR CAR ONTO THE BEACH AND PARK IT NEAR THE CEREMONY.
+          PUBLIC TRANSPORTATION, PLAN YOUR TRIP AT:  <a href="http://www.slorta.org/">http://www.slorta.org/</a></p>
+        </div>
+
+        <div id="Accommodations" class="hide">
+          <p>Campgrounds: North Beach campgrounds is the one nearest to our site.  It.s very nice and you can walk over the dunes to the beach.   SVRA is for cars and Rvs camping directly on the beach (no bathroom, running water, etc).  Reserve your campground early before they get booked, this campground is very popular in September! http://www.reserveamerica.com/camping/Pismo_Sb/r/campgroundBookingWindow.do?contractCode=CA&parkId=120070
+          
+          Hotels: there are many hotels in the area, Seaventure and edge water and in downtown Pismo Beach.  There are some that are more inland, near the freeway, but you may enjoy being downtown near the restaurants more.  
+          
+          Vacation homes:  flipkey.com and vrbo.com have a lot of listings for vacation homes in Pismo beach and Grover beach.  This may be more economical if you.d like to stay in a group of 10+ people.</p>
+        </div>
+
+        <div id="Event" class="hide">
+          <p>4pm on September 7th, 2013
+          
+          Ceremony and Reception to be held at the W. Grand Avenue entrance to the Oceano Dunes State Park.  
+          
+          Yes, it.s on a beach!  
+          
+          Dress code is semi-formal.  See the photo below if you need some ideas.  The weather is typically warm this time of year.  We usually get an indian summer around mid to late September for be prepared for hot weather.  Of course be prepared for windy weather too.  We.ll know what to expect closer to the event.</p>
+        </div>
+
+        <div id="Wedding_Party" class="hide">
+          <p>About wedding party:
+          
+          bios:
+          
+          Jessica
+          
+          Isaac
+          
+          Bethany
+          
+          Dillon
+          
+          Rebecca
+          
+          Mike
+          
+          Rachel
+          
+          Ruben
+          
+          Caitlyn
+          
+          Bruce
+          
+          Brad
+          
+          Susan & Bill
+          
+          Officiant- Dana Jones</p>
         </div>
 
       </div>
