@@ -3,7 +3,8 @@ include 'mysql_setup.php';
 
 $sql = 'UPDATE guest
         SET
-        attending = ?,
+        attendingYes = ?,
+        attendingNo = ?,
         adults = ?,
         children = ?,
         email = ?,
@@ -12,10 +13,12 @@ $sql = 'UPDATE guest
 
 $stmt = $mysqli->prepare($sql);
 
-$attending = ($_POST['attending'] == 'checked' ? '1' : '0');
+$attendingYes = ($_POST['attendingYes'] == 'checked' ? '1' : '0');
+$attendingNo = ($_POST['attendingYes'] == 'checked' ? '0' : '1');
 
-$stmt->bind_param("sssss",
-  $attending,
+$stmt->bind_param("ssssss",
+  $attendingYes,
+  $attendingNo,
   $_POST['adults'],
   $_POST['children'],
   $_POST['email'],

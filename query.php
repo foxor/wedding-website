@@ -1,7 +1,7 @@
 <?php
 include 'mysql_setup.php';
 
-$sql = 'SELECT name, attending, adults, children, email
+$sql = 'SELECT name, attendingYes, attendingNo, adults, children, email
         FROM guest
         WHERE code = ?';
 
@@ -11,13 +11,14 @@ $stmt->bind_param("s", $_GET['code']);
 
 $stmt->execute();
 
-$stmt->bind_result($name, $attending, $adults, $children, $email);
+$stmt->bind_result($name, $attendingYes, $attendingNo, $adults, $children, $email);
 
 $stmt->fetch();
 
 $result = array(
   'name' => $name,
-  'attending' => $attending,
+  'attendingYes' => $attendingYes,
+  'attendingNo' => $attendingNo,
   'adults' => $adults,
   'children' => $children,
   'email' => $email,

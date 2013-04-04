@@ -1,2 +1,4 @@
 mysql_setup.php
 *.swp
+*.sql
+*.csv
