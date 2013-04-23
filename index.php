@@ -289,6 +289,7 @@ print_r($browser);
       return function() {
         if (!firstSemaphore) {
           firstSemaphore = true;
+          $("#BigHello").hide();
           $("#sunContainer").animate({
             width: '100%'
           }, 1000, sunDown(data));
